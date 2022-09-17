@@ -25,7 +25,7 @@ if($result->num_rows > 0) {
  	$button = '<!-- Single button -->
 	<div class="btn-group">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    ตั้งค่า <span class="caret"></span>
+	    Click <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu">
 	    <li><a href="orders.php?o=editOrd&i='.$sellId.'" id="editOrderModalBtn"> <i class="glyphicon glyphicon-eye-open"></i> ดู </a></li>

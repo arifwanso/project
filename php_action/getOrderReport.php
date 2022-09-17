@@ -13,35 +13,41 @@ if($_POST) {
 	$format = DateTime::createFromFormat('m/d/Y',$endDate);
 	$end_date = $format->format("Y-m-d");
 
-	$sql = "SELECT * FROM orders WHERE order_date >= '$start_date' AND order_date <= '$end_date'";
+	$sql = "SELECT sell.sell_date,sell.sell_time,product.product_name,sell_item.quantity,sell_item.total,product.buy_price FROM sell,sell_item,product WHERE sell.sell_date >= '$start_date' AND sell.sell_date <= '$end_date' AND sell.sell_id = sell_item.sell_id AND sell_item.product_id = product.product_id";
 	$query = $connect->query($sql);
 
-	$sum = "SELECT SUM(sub_total)FROM orders WHERE order_date >= '$start_date' AND order_date <= '$end_date' ";
-	$total = $connect->query($sum);
 	
 
 	$table = '
 	<table border="1" cellspacing="0" cellpadding="0" style="width:100%;">
 		<tr>
-			<th>วันที่ที่ทำการเบิก</th>
-			<th>รายชื่อผู้เบิก</th>
-			<th>เบอร์โทรศัพท์</th>
-			<th>หมายเหตุ</th>
+			<th>วันที่ที่ทำการขาย</th>
+			<th>เวลาที่ทำการขาย</th>
+			<th>ชื่อสินค้า</th>
+			<th>จำนวน</th>
 			<th>ราคารวม</th>
+			<th>กำไรรวม</th>
 		</tr>
 
 		<tr>';
 		$totalAmount = 0;
+		$totalQuantity = 0;
+		$totalProfit = 0;
+
 		while ($result = $query->fetch_assoc() ) {
+			$profit = $result['total'] - $result['buy_price']*$result['quantity'];
 			$table .= '<tr>
-				<td><center>'.$result['order_date'].'</center></td>
-				<td><center>'.$result['client_name'].'</center></td>
-				<td><center>'.$result['client_contact'].'</center></td>
-				<td><center>'.$result['description'].'</center></td>
-				<td><center>'.$result['sub_total'].'</center></td>
+				<td><center>'.$result['sell_date'].'</center></td>
+				<td><center>'.$result['sell_time'].'</center></td>
+				<td><center>'.$result['product_name'].'</center></td>
+				<td><center>'.$result['quantity'].'</center></td>
+				<td><center>'.$result['total'].'</center></td>
+				<td><center>'.$profit.'</center></td>
 			</tr>';
 			//$total = $result['sub_total'] ;
-			$totalAmount += $result['sub_total'];
+			$totalAmount += $result['total'];
+			$totalQuantity += $result['quantity'];
+			$totalProfit += $profit;
 			//$totalAmount =  $result['sub_total'] ;
 		}
 		$table .= '
@@ -49,8 +55,10 @@ if($_POST) {
 		</tr>
 		<tr>
 		
-			<td colspan="4"><center>ราคารวมทั้งหมด</center></td>
+			<td colspan="3"><center>ทั้งหมด</center></td>
+			<td><center>'.$totalQuantity.'</center></td>
 			<td><center>'.$totalAmount.'</center></td>
+			<td><center>'.$totalProfit.'</center></td>
 		</tr>
 
 	</table>

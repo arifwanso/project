@@ -32,7 +32,7 @@
 							<th>จุดสั่งซื้อ</th>
 							<th>ราคาซื้อ</th>
 							<th>ราคาขาย</th>		
-							<th style="width:15%;">ตั้งค่า</th>
+							<th style="width:15%;">จัดการข้อมูล</th>
 						</tr>
 					</thead>
 				</table>
@@ -123,7 +123,7 @@
 	        	<label for="warning" class="col-sm-3 control-label">จุดสั่งซื้อ: </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="warning" placeholder="" disabled name="warning" value="5" autocomplete="off">
+				      <input type="text" class="form-control " id="warning" placeholder="" name="warning" value="5" autocomplete="off">
 				    </div>        	 
 	        </div> <!-- /form-group-->	     			        	         	         
 	      </div> <!-- /modal-body -->
@@ -313,6 +313,6 @@
 <!-- /categories brand -->
 
 
-<script src="custom/js/products.js"></script>
+<script src="custom/js/product.js"></script>
 
 <?php require_once 'includes/footer.php'; ?>

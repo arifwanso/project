@@ -11393,7 +11393,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "ค้นหา:",
 	
 	
 			/**
@@ -11404,7 +11404,7 @@
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.searchPlaceholder
 			 */
-			"sSearchPlaceholder": "Search",
+			"sSearchPlaceholder": "ค้นหา",
 	
 	
 			/**

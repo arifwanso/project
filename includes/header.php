@@ -12,9 +12,10 @@
 	<link rel="stylesheet" href="assests/bootstrap/css/bootstrap-theme.min.css">
 	<!-- font awesome -->
 	<link rel="stylesheet" href="assests/font-awesome/css/font-awesome.min.css">
-
   <!-- custom css -->
   <link rel="stylesheet" href="custom/css/custom.css">
+  <!--Chosen-->
+  <!--<link rel="stylesheet" href="assests/plugins/chosen/chosen.min.css">-->
 
 	<!-- DataTables -->
   <link rel="stylesheet" href="assests/plugins/datatables/jquery.dataTables.min.css">
@@ -24,15 +25,24 @@
 
   <!-- jquery -->
 	<script src="assests/jquery/jquery.min.js"></script>
+  <script src="assests/jquery/jquery.js"></script>
+  
   <!-- jquery ui -->  
   <link rel="stylesheet" href="assests/jquery-ui/jquery-ui.min.css">
   <script src="assests/jquery-ui/jquery-ui.min.js"></script>
 
   <!-- bootstrap js -->
 	<script src="assests/bootstrap/js/bootstrap.min.js"></script>
-
+ 
+  
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+ 
+  
 <link rel="icon" href="assests\images\b.ico" type="image/x-icon">
 <link rel="shortcut icon" href="assests\images\b.ico" type="image/x-icon">
+
 </head>
 <body>
 
@@ -55,14 +65,8 @@
 
       <ul class="nav navbar-nav navbar-right">        
 
-      	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-list-alt"></i>  Home</a></li>        
-
-        <li id="navType"><a href="type.php"> <i class="glyphicon glyphicon-th-list"></i> ประเภทสินค้า</a></li>        
-
-        <li id="navProduct"><a href="product.php"> <i class="glyphicon glyphicon-inbox"></i> รายการสินค้า</a></li>
-
-        <li id="navBuy"class="disabled" ><a href="#"> <i class="	glyphicon glyphicon-plus-sign"></i> การซื้อสินค้า</a></li>
-          
+      	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-list-alt"></i>  Home</a></li> 
+        
         <li class="dropdown" id="navSale">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-shopping-cart"></i> ขายสินค้า <span class="caret"></span></a>
           <ul class="dropdown-menu">            
@@ -71,7 +75,13 @@
           </ul>
         </li> 
 
-        <li id="navReport"  class="disabled"><a href="#"> <i class="glyphicon glyphicon-file"></i> รายงานรายสัปดาห์ </a></li>
+        <li id="navBuy"class="disabled" ><a href="#"> <i class="	glyphicon glyphicon-plus-sign"></i> ซื้อสินค้า</a></li>
+
+        <li id="navType"><a href="type.php"> <i class="glyphicon glyphicon-th-list"></i> ประเภทสินค้า</a></li>        
+
+        <li id="navProduct"><a href="product.php"> <i class="glyphicon glyphicon-inbox"></i> รายการสินค้า</a></li>
+        
+        <li id="navReport" ><a href="report.php"> <i class="glyphicon glyphicon-file"></i> รายงาน</a></li>
 
         <li class="dropdown" id="navSetting">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>

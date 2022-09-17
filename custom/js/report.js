@@ -1,9 +1,12 @@
 $(document).ready(function() {
-
+    //$("#client_name").menu();
 	// order date picker
 	$("#startDate").datepicker();
 	// order date picker
 	$("#endDate").datepicker();
+	$("#startDates").datepicker();
+	// order date picker
+	$("#endDates").datepicker();
 
 	$("#getOrderReportForm").unbind('submit').bind('submit', function() {
 		
@@ -56,15 +59,38 @@ $(document).ready(function() {
 
 		return false;
 	});
-	$("#nameReportForm").unbind('submit').bind('submit', function() {
-		var client_name = $("#client_name").val();
-		if(client_name == "" ){
-			$("#client_name").closest('.form-group').addClass('has-error');
-			$("#client_name").after('<p class="text-danger">Name is required</p>');
-		}else{
-			$(".form-group").removeClass('has-error');
-			$(".text-danger").remove();
 
+	$("#typeReportForm").unbind('submit').bind('submit', function() {
+		var startDates = $("#startDates").val();
+		var endDates = $("#endDates").val();	
+		var type_product = $("#type_product").val();
+		
+		if(type_product == "" || startDates == "" || endDates == "" ){
+			if(startDates == "") {
+				$("#startDates").closest('.form-group').addClass('has-error');
+				$("#startDates").after('<p class="text-danger">The Start Date is required</p>');
+			} else {
+				$(".form-group").removeClass('has-error');
+				$(".text-danger").remove();
+			}if(endDates == "") {
+				$("#endDates").closest('.form-group').addClass('has-error');
+				$("#endDates").after('<p class="text-danger">The End Date is required</p>');
+			} else {
+				$(".form-group").removeClass('has-error');
+				$(".text-danger").remove();
+			}if(type_product == ""){
+			$("#type_product").after('<p class="text-danger">Name is required</p>');
+			$("#type_product").closest('.form-group').addClass('has-error');
+			} else{
+				$(".form-group").find('.text-danger').remove();
+				$(".text-danger").closest('.form-group').addClass('has-success');	
+			}		
+		}
+		else{
+			$(".form-group").find('.text-danger').remove();
+			$(".text-danger").closest('.form-group').addClass('has-success');	
+		
+		
 			var form = $(this);
 
 			$.ajax({
@@ -73,7 +99,7 @@ $(document).ready(function() {
 				data: form.serialize(),
 				dataType: 'text',
 				success:function(response) {
-			var mywindow = window.open('', 'Stock Management System', 'height=400,width=600');
+			var mywindow = window.open('', '', 'height=400,width=600');
 	        mywindow.document.write('<html><head><title>Order Report Slip</title>');        
 	        mywindow.document.write('</head><body>');
 	        mywindow.document.write(response);
@@ -86,7 +112,10 @@ $(document).ready(function() {
 			});	// /ajax
 
 		}
-	});
-
+		return false;
+	
+	
+});
 
 });
+

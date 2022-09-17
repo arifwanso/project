@@ -25,7 +25,7 @@
 					<thead>
 						<tr>							
 							<th>ชื่อประเภท</th>
-							<th style="width:15%;">แก้ไข</th>
+							<th style="width:15%;">จัดการข้อมูล</th>
 						</tr>
 					</thead>
 				</table>
@@ -128,7 +128,7 @@
         <h4 class="modal-title"><i class="glyphicon glyphicon-trash"></i> ลบประเภทสินค้า</h4>
       </div>
       <div class="modal-body">
-        <p>คุณต้องการที่จะลบออกหรือไม่ ?</p>
+        <p>คุณต้องการที่จะลบประเภทสินค้านี้ออกหรือไม่ ?</p>
       </div>
       <div class="modal-footer removeTypeFooter">
         <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ปิด</button>

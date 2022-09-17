@@ -12,7 +12,7 @@ $sql = "SELECT product.product_id, product.product_name, product.product_image,
 $result = $connect->query($sql);
 
 
-$sqls = "UPDATE product SET status='3' Where quantity = warning";
+$sqls = "UPDATE product SET status='3' Where quantity <= warning";
 $results = $connect->query($sqls);
 
 $sqlss = "UPDATE product SET status='2' Where quantity <= 0 ";
@@ -46,7 +46,7 @@ if($result->num_rows > 0) {
  	$button = '<!-- Single button -->
 	<div class="btn-group">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    ตั้งค่า <span class="caret"></span>
+	    Click <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu">
 	    <li><a type="button" data-toggle="modal" id="editProductModalBtn" data-target="#editProductModal" onclick="editProduct('.$productId.')"> <i class="glyphicon glyphicon-edit"></i> แก้ไข</a></li>

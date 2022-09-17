@@ -76,7 +76,7 @@ if($_GET['o'] == 'add') {
 			      <input type="text" value=<?php date_default_timezone_set("Asia/Bangkok"); echo date("H:i:s");?> class="form-control" id="sellTime" name="sellTime" autocomplete="off" />
 			    </div>
 			  </div> <!--/form-group-->	
-
+			  
 			  <table class="table" id="productTable">
 			  	<thead>
 			  		<tr>			  			
@@ -96,7 +96,7 @@ if($_GET['o'] == 'add') {
 			  				<td style="margin-left:30px;">
 			  					<div class="form-group">
 										
-			  					<select data-live-search="true" class="form-control" name="productName[]" id="productName<?php echo $x; ?>" onchange="getProductData(<?php echo $x; ?>)" >
+			  					<select data-live-search="true" class="form-control select2" name="productName[]" id="productName<?php echo $x; ?>" onchange="getProductData(<?php echo $x; ?>)">
 								  <option value="">--เลือก--</option>
 									  <?php
 										$productSql = "SELECT * FROM product WHERE quantity > 0";
@@ -132,6 +132,7 @@ if($_GET['o'] == 'add') {
 
 			  					<button class="btn btn-default removeProductRowBtn" type="button" id="removeProductRowBtn" onclick="removeProductRow(<?php echo $x; ?>)"><i class="glyphicon glyphicon-trash"></i></button>
 			  				</td>
+							
 			  			</tr>
 		  			<?php
 		  			$arrayNumber++;
@@ -172,7 +173,7 @@ if($_GET['o'] == 'add') {
 						<th>วันที่ที่ทำการขาย</th>
 						<th>เวลาที่ทำการขาย</th>
 						<th>จำนวนสินค้า</th>
-						<th>ตั้งค่า</th>
+						<th>จัดการข้อมูล</th>
 					</tr>
 				</thead>
 			</table>
@@ -239,7 +240,7 @@ if($_GET['o'] == 'add') {
 			  					<select class="form-control" name="productName[]" id="productName<?php echo $x; ?>"disabled="true"onchange="getProductData(<?php echo $x; ?>)" >
 			  						<option value="">--เลือก--</option>
 			  						<?php
-			  							$productSql = "SELECT * FROM product WHERE  quantity > warning";
+			  							$productSql = "SELECT * FROM product ";
 			  							$productData = $connect->query($productSql);
 
 			  							while($row = $productData->fetch_array()) {									 		
@@ -339,6 +340,6 @@ if($_GET['o'] == 'add') {
 </div><!-- /.modal -->
 <!-- /remove order-->
 
-<script src="custom/js/orders.js"></script>
+<script src="custom/js/order.js"></script>
 
 <?php require_once 'includes/footer.php'; ?>

@@ -57,19 +57,37 @@ $(document).ready(function() {
 		return false;
 	});
 
-	$("#nameReportForm").unbind('submit').bind('submit', function() {
-		var client_name = $("#client_name").val();
-		if(client_name == "" ){
-			$("#client_name").after('<p class="text-danger">Name is required</p>');
-			$("#client_name").closest('.form-group').addClass('has-error');
+	$("#typeReportForm").unbind('submit').bind('submit', function() {
+		var startDate = $("#startDate").val();
+		var endDate = $("#endDate").val();	
+		var type_product = $("#type_product").val();
 		
+		if(type_product == "" || startDate == "" || endDate == "" ){
+			if(startDate == "") {
+				$("#startDate").closest('.form-group').addClass('has-error');
+				$("#startDate").after('<p class="text-danger">The Start Date is required</p>');
+			} else {
+				$(".form-group").removeClass('has-error');
+				$(".text-danger").remove();
+			}if(endDate == "") {
+				$("#endDate").closest('.form-group').addClass('has-error');
+				$("#endDate").after('<p class="text-danger">The End Date is required</p>');
+			} else {
+				$(".form-group").removeClass('has-error');
+				$(".text-danger").remove();
+			}if(type_product == ""){
+			$("#type_product").after('<p class="text-danger">Name is required</p>');
+			$("#type_product").closest('.form-group').addClass('has-error');
+			} else{
+				$(".form-group").find('.text-danger').remove();
+				$(".text-danger").closest('.form-group').addClass('has-success');	
+			}		
 		}
 		else{
 			$(".form-group").find('.text-danger').remove();
 			$(".text-danger").closest('.form-group').addClass('has-success');	
-		}
-		if(client_name)
-		{
+		
+		
 			var form = $(this);
 
 			$.ajax({
@@ -92,8 +110,9 @@ $(document).ready(function() {
 
 		}
 		return false;
-	});
+	
 	
 });
 
+});
 

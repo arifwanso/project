@@ -20,7 +20,7 @@ if($result->num_rows > 0) {
  	$button = '<!-- Single button -->
 	<div class="btn-group">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    ตั้งค่า <span class="caret"></span>
+	    Click <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu">
 	    <li><a type="button" data-toggle="modal" id="editTypeModalBtn" data-target="#editTypeModal" onclick="editType('.$typeId.')"> <i class="glyphicon glyphicon-edit"></i> แก้ไข</a></li>
