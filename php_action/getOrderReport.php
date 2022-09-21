@@ -13,7 +13,7 @@ if($_POST) {
 	$format = DateTime::createFromFormat('m/d/Y',$endDate);
 	$end_date = $format->format("Y-m-d");
 
-	$sql = "SELECT sell.sell_date,sell.sell_time,product.product_name,sell_item.quantity,sell_item.total,product.buy_price FROM sell,sell_item,product WHERE sell.sell_date >= '$start_date' AND sell.sell_date <= '$end_date' AND sell.sell_id = sell_item.sell_id AND sell_item.product_id = product.product_id";
+	$sql = "SELECT product.product_name,sum(sell_item.quantity) as sumquantity ,sum(sell_item.total) as sumtotal,product.buy_price FROM sell,sell_item,product WHERE sell.sell_date >= '$start_date' AND sell.sell_date <= '$end_date' AND sell.sell_id = sell_item.sell_id AND sell_item.product_id = product.product_id group by product.product_name";
 	$query = $connect->query($sql);
 
 	
@@ -21,8 +21,6 @@ if($_POST) {
 	$table = '
 	<table border="1" cellspacing="0" cellpadding="0" style="width:100%;">
 		<tr>
-			<th>วันที่ที่ทำการขาย</th>
-			<th>เวลาที่ทำการขาย</th>
 			<th>ชื่อสินค้า</th>
 			<th>จำนวน</th>
 			<th>ราคารวม</th>
@@ -33,20 +31,19 @@ if($_POST) {
 		$totalAmount = 0;
 		$totalQuantity = 0;
 		$totalProfit = 0;
-
-		while ($result = $query->fetch_assoc() ) {
-			$profit = $result['total'] - $result['buy_price']*$result['quantity'];
+		
+		while ($result = $query->fetch_array() ) {
+			$profit = $result['sumtotal'] - $result['buy_price'] * $result['sumquantity'];
+			
 			$table .= '<tr>
-				<td><center>'.$result['sell_date'].'</center></td>
-				<td><center>'.$result['sell_time'].'</center></td>
 				<td><center>'.$result['product_name'].'</center></td>
-				<td><center>'.$result['quantity'].'</center></td>
-				<td><center>'.$result['total'].'</center></td>
+				<td><center>'.$result['sumquantity'].'</center></td>
+				<td><center>'.$result['sumtotal'].'</center></td>
 				<td><center>'.$profit.'</center></td>
 			</tr>';
 			//$total = $result['sub_total'] ;
-			$totalAmount += $result['total'];
-			$totalQuantity += $result['quantity'];
+			$totalAmount += $result['sumtotal'];
+			$totalQuantity += $result['sumquantity'];
 			$totalProfit += $profit;
 			//$totalAmount =  $result['sub_total'] ;
 		}
@@ -55,7 +52,7 @@ if($_POST) {
 		</tr>
 		<tr>
 		
-			<td colspan="3"><center>ทั้งหมด</center></td>
+			<td colspan="1"><center>ทั้งหมด</center></td>
 			<td><center>'.$totalQuantity.'</center></td>
 			<td><center>'.$totalAmount.'</center></td>
 			<td><center>'.$totalProfit.'</center></td>
