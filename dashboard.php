@@ -40,7 +40,7 @@ $countLowStock = $lowStockQuery->num_rows;
 			<div class="panel panel-success">
 			<div class="panel-heading">
 				<a href="productAVB.php" style="text-decoration:none;color:black;">
-					Available
+					มีสินค้า
 					<span class="badge pull pull-right"><?php echo $countOrder; ?></span>
 				</a>
 					
@@ -53,7 +53,7 @@ $countLowStock = $lowStockQuery->num_rows;
 			<div class="panel panel-warning">
 			<div class="panel-heading">
 				<a href="productWN.php" style="text-decoration:none;color:black;">
-					Warning
+					จุดสั่งซื้อ
 					<span class="badge pull pull-right"><?php echo $countWarnings; ?></span>
 				</a>
 					
@@ -65,7 +65,7 @@ $countLowStock = $lowStockQuery->num_rows;
 		<div class="panel panel-danger">
 			<div class="panel-heading">
 				<a href="productNAVB.php" style="text-decoration:none;color:black;">
-					No Available
+					สินค้าหมด
 					<span class="badge pull pull-right"><?php echo $countLowStock; ?></span>	
 				</a>
 				

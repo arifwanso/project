@@ -16,10 +16,6 @@
 			<div class="panel-body">
 
 				<div class="remove-messages"></div>
-
-				<div class="div-action pull pull-right" style="padding-bottom:20px;">
-					<button class="btn btn-default button1" data-toggle="modal" id="addProductModalBtn" data-target="#addProductModal"> <i class="glyphicon glyphicon-plus-sign"></i> เพิ่มสินค้า </button>
-				</div> <!-- /div-action -->				
 				
 				<table class="table" id="manageProductTable">
 					<thead>
@@ -44,99 +40,7 @@
 </div> <!-- /row -->
 
 
-<!-- add product -->
-<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-    	<form class="form-horizontal" id="submitProductForm" action="php_action/createProduct.php" method="POST" enctype="multipart/form-data">
-	      <div class="modal-header">
-	        <button type="button"  class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title"><i class="fa fa-plus"></i> เพิ่มสินค้า</h4>
-	      </div>
-
-	      <div class="modal-body" style="max-height:450px; overflow:auto;">
-
-	      	<div id="add-product-messages"></div>
-
-	      	<div class="form-group">
-	        	<label for="productImage" class="col-sm-3 control-label">เพิ่มรูปภาพ: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-8">
-					    <!-- the avatar markup -->
-							<div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>							
-					    <div class="kv-avatar center-block">					        
-					        <input type="file" class="form-control" id="productImage" placeholder="" name="productImage" class="file-loading" style="width:auto;"/>
-					    </div>
-				      
-				    </div>
-	        </div> <!-- /form-group-->	     	  
-			<div class="form-group">
-	        	<label for="typeName" class="col-sm-3 control-label">ประเภทสินค้า: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-8">
-				      <select type="text" class="form-control" id="typeName" placeholder="Type Name" name="typeName" >
-				      	<option value="">--เลือก--</option>
-				      	<?php 
-				      	$sql = "SELECT type_id, type_name FROM type";
-								$result = $connect->query($sql);
-
-								while($row = $result->fetch_array()) {
-									echo "<option value='".$row[0]."'>".$row[1]."</option>";
-								} // while
-								
-				      	?>
-				      </select>
-				    </div>
-	        </div> <!-- /form-group-->         	       
-
-	        <div class="form-group">
-	        	<label for="productName" class="col-sm-3 control-label">ชื่อสินค้า: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="productName" placeholder="" name="productName" autocomplete="off">
-				    </div>
-	        </div> <!-- /form-group-->	    
-
-	        <div class="form-group">
-	        	<label for="quantity" class="col-sm-3 control-label">จำนวน: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="quantity" placeholder="" name="quantity" autocomplete="off">
-				    </div>        	 
-	        </div> <!-- /form-group-->	     	 
-			<div class="form-group">
-	        	<label for="buyPrice" class="col-sm-3 control-label">ราคาซี้อ: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="buyPrice" placeholder="" name="buyPrice" autocomplete="off">
-				    </div>        	 
-	        </div> <!-- /form-group-->	    
-			<div class="form-group">
-	        	<label for="sellPrice" class="col-sm-3 control-label">ราคาขาย: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="sellPrice" placeholder="" name="sellPrice" autocomplete="off">
-				    </div>        	 
-	        </div> <!-- /form-group-->	           		
-			<div class="form-group">
-	        	<label for="warning" class="col-sm-3 control-label">จุดสั่งซื้อ: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-8">
-				      <input type="text" class="form-control " id="warning" placeholder="" name="warning" value="5" autocomplete="off">
-				    </div>        	 
-	        </div> <!-- /form-group-->	     			        	         	         
-	      </div> <!-- /modal-body -->
-	      
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ปิด</button>
-	        
-	        <button type="submit" class="btn btn-primary" id="createProductBtn" data-loading-text="Loading..." autocomplete="off"> <i class="glyphicon glyphicon-ok-sign"></i> บันทึกข้อมูล</button>
-	      </div> <!-- /modal-footer -->	      
-     	</form> <!-- /.form -->	     
-    </div> <!-- /modal-content -->    
-  </div> <!-- /modal-dailog -->
-</div> 
 <!-- /add categories -->
 
 
@@ -161,7 +65,7 @@
 				  <!-- Nav tabs -->
 				  <ul class="nav nav-tabs" role="tablist">
 				    <li role="presentation" class="active"><a href="#photo" aria-controls="home" role="tab" data-toggle="tab">รูป</a></li>
-				    <li role="presentation"><a href="#productInfo" aria-controls="profile" role="tab" data-toggle="tab">ข้อมูลพัสดุ</a></li>    
+				    <li role="presentation"><a href="#productInfo" aria-controls="profile" role="tab" data-toggle="tab">ข้อมูลสินค้า</a></li>    
 				  </ul>
 
 				  <!-- Tab panes -->

@@ -1,4 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <?php 
 require_once 'php_action/db_connect.php'; 
 require_once 'includes/header.php'; 
@@ -340,6 +340,6 @@ if($_GET['o'] == 'add') {
 </div><!-- /.modal -->
 <!-- /remove order-->
 
-<script src="custom/js/order.js"></script>
+<script src="custom/js/orders.js"></script>
 
 <?php require_once 'includes/footer.php'; ?>

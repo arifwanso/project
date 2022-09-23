@@ -2,22 +2,22 @@
 
 require_once 'core.php';
 
-$sellId = $_POST['sellId'];
+$buyId = $_POST['buyId'];
 
-$sql = "SELECT sell_date,sell_time,sell_total FROM sell WHERE sell_id = $sellId";
+$sql = "SELECT buy_date,buy_time,buy_total FROM buy WHERE buy_id = $buyId";
 
-$sellResult = $connect->query($sql);
-$sellData = $sellResult->fetch_array();
+$buyResult = $connect->query($sql);
+$buyData = $buyResult->fetch_array();
 
-$sellDate = $sellData[0];
-$sellTime = $sellData[1];
-$sellTotal = $sellData[2];
+$buyDate = $buyData[0];
+$buyTime = $buyData[1];
+$buyTotal = $buyData[2];
 
-$orderItemSql = "SELECT sell_item.product_id, sell_item.rate, sell_item.quantity, sell_item.total,
-product.product_name FROM sell_item
-	INNER JOIN product ON sell_item.product_id = product.product_id 
- WHERE sell_item.sell_id = $sellId";
-$orderItemResult = $connect->query($orderItemSql);
+$buyItemSql = "SELECT buy_item.product_id, buy_item.rate, buy_item.quantity, buy_item.total,
+product.product_name FROM buy_item
+	INNER JOIN product ON buy_item.product_id = product.product_id 
+ WHERE buy_item.buy_id = $buyId";
+$buyItemResult = $connect->query($buyItemSql);
 
  $table = '
  <table border="1" cellspacing="0" cellpadding="20" width="100%">
@@ -25,8 +25,8 @@ $orderItemResult = $connect->query($orderItemSql);
 		<tr >
 			<th colspan="5">
 			<center>
-				<center>วันที่ที่ทำการขาย : '.$sellDate.'</center>
-				เวลาที่ทำการขาย : '.$sellTime.'
+				<center>วันที่ที่ทำการซื้อ : '.$buyDate.'</center>
+				เวลาที่ทำการซื้อ: '.$buyTime.'
 			</center>		
 			</th>
 				
@@ -39,13 +39,13 @@ $orderItemResult = $connect->query($orderItemSql);
 		<tr>
 			<th>#</th>
 			<th>สินค้า</th>
-			<th>ราคา</th>
+			<th>ราคาซื้อ</th>
 			<th>จำนวน</th>
 			<th>ราคารวม</th>
 		</tr>';
 
 		$x = 1;
-		while($row = $orderItemResult->fetch_array()) {			
+		while($row = $buyItemResult->fetch_array()) {			
 						
 			$table .= '<tr>
 				<th>'.$x.'</th>
@@ -68,7 +68,7 @@ $orderItemResult = $connect->query($orderItemSql);
 
 		<tr>
 			<th>ราคารวมทั้งหมด</th>
-			<th>'.$sellTotal.'</th>			
+			<th>'.$buyTotal.'</th>			
 		</tr>
 	</tbody>
 </table>

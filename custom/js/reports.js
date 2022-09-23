@@ -1,9 +1,15 @@
-$(document).ready(function() {
+
+$(document).ready(function() 
+{$('#navReport').addClass('active');
+$('#topNavReport').addClass('active');
     //$("#client_name").menu();
 	// order date picker
 	$("#startDate").datepicker();
 	// order date picker
 	$("#endDate").datepicker();
+	$("#startDates").datepicker();
+	// order date picker
+	$("#endDates").datepicker();
 
 	$("#getOrderReportForm").unbind('submit').bind('submit', function() {
 		
@@ -58,20 +64,20 @@ $(document).ready(function() {
 	});
 
 	$("#typeReportForm").unbind('submit').bind('submit', function() {
-		var startDate = $("#startDate").val();
-		var endDate = $("#endDate").val();	
+		var startDates = $("#startDates").val();
+		var endDates = $("#endDates").val();	
 		var type_product = $("#type_product").val();
 		
-		if(type_product == "" || startDate == "" || endDate == "" ){
-			if(startDate == "") {
-				$("#startDate").closest('.form-group').addClass('has-error');
-				$("#startDate").after('<p class="text-danger">The Start Date is required</p>');
+		if(type_product == "" || startDates == "" || endDates == "" ){
+			if(startDates == "") {
+				$("#startDates").closest('.form-group').addClass('has-error');
+				$("#startDates").after('<p class="text-danger">The Start Date is required</p>');
 			} else {
 				$(".form-group").removeClass('has-error');
 				$(".text-danger").remove();
-			}if(endDate == "") {
-				$("#endDate").closest('.form-group').addClass('has-error');
-				$("#endDate").after('<p class="text-danger">The End Date is required</p>');
+			}if(endDates == "") {
+				$("#endDates").closest('.form-group').addClass('has-error');
+				$("#endDates").after('<p class="text-danger">The End Date is required</p>');
 			} else {
 				$(".form-group").removeClass('has-error');
 				$(".text-danger").remove();

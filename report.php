@@ -37,7 +37,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<i class="glyphicon glyphicon-check"></i>	พิมพ์รายการที่ขาย
+				<i class="glyphicon glyphicon-check"></i>	พิมพ์รายการที่ขายตามประเภท
 			</div>
 			<!-- /panel-heading -->
 			<div class="panel-body">
@@ -90,7 +90,7 @@
 </div>
 <!-- /row -->
 
-<script src="custom/js/report.js"></script>
+<script src="custom/js/reports.js"></script>
 
 <?php require_once 'includes/footer.php'; ?>
 

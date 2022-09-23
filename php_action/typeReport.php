@@ -7,18 +7,26 @@ if($_POST) {
 	$startDates = $_POST['startDates'];
 	$date = DateTime::createFromFormat('m/d/Y',$startDates);
 	$start_dates = $date->format("Y-m-d");
-
+	$start_date = $date->format("d-m-Y");
 
 	$endDates = $_POST['endDates'];
 	$format = DateTime::createFromFormat('m/d/Y',$endDates);
 	$end_dates = $format->format("Y-m-d");
-	
+	$end_date = $format->format("d-m-Y");
+
 	$type_product = $_POST['type_product'];
+
+	$type = "SELECT type_name from type where type_id = $type_product";
+	$types = $connect->query($type);
+	$Data = $types->fetch_array();
+
+
 
 	$sql = "SELECT product.product_name,sum(sell_item.quantity) as sumquantity,sum(sell_item.total) as sumtotal,product.buy_price,type.type_name FROM sell,sell_item,product,type WHERE sell.sell_date >= '$start_dates' AND sell.sell_date <= '$end_dates'  AND type.type_id = $type_product AND type.type_id = product.type_id AND sell_item.product_id = product.product_id  AND sell_item.sell_id = sell.sell_id group by product.product_name ";
 	$query = $connect->query($sql);
 	//$data = $query->fetch_row();
 	$table = '
+		<h3><center>รายงานการขายสินค้าประเภท '.$Data[0].' ตั้งแต่วันที่ '.$start_date.' ถึง '.$end_date.'</center></h3>
 	<table border="1" cellspacing="0" cellpadding="0" style="width:100%;">
 		<tr>
 			<th>ชื่อสินค้า</th>

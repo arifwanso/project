@@ -75,13 +75,27 @@
           </ul>
         </li> 
 
-        <li id="navBuy"class="disabled" ><a href="#"> <i class="	glyphicon glyphicon-plus-sign"></i> ซื้อสินค้า</a></li>
+        <li class="dropdown" id="navBuy">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-plus-sign"></i> ซื้อสินค้า <span class="caret"></span></a>
+          <ul class="dropdown-menu">            
+            <li id="topNavAddBuy"><a href="buy.php?o=add"> <i class="glyphicon glyphicon-plus"></i> เพิ่มการซื้อ</a></li> 
+            <li id="topNavAddNewBuy"><a href="buy.php?o=addNew"> <i class="	glyphicon glyphicon-circle-arrow-right"></i> เพิ่มสินค้าใหม่</a></li>           
+            <li id="topNavManageBuy"><a href="buy.php?o=manord"> <i class="glyphicon glyphicon-time"></i> ประวัติการซื้อ</a></li>            
+          </ul>
+        </li> 
 
         <li id="navType"><a href="type.php"> <i class="glyphicon glyphicon-th-list"></i> ประเภทสินค้า</a></li>        
 
         <li id="navProduct"><a href="product.php"> <i class="glyphicon glyphicon-inbox"></i> รายการสินค้า</a></li>
         
-        <li id="navReport" ><a href="report.php"> <i class="glyphicon glyphicon-file"></i> รายงาน</a></li>
+        <li class="dropdown" id="navReport">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="	glyphicon glyphicon-file"></i> รายงาน <span class="caret"></span></a>
+          
+          <ul class="dropdown-menu">            
+            <li id="topNavDailyReport"><a href="Dailyreport.php"> <i class="glyphicon glyphicon-dashboard"></i> รายงานประจำวัน</a></li> 
+            <li id="topNavReport"><a href="report.php"> <i class="glyphicon glyphicon-calendar"></i> รายงานย้อนหลัง</a></li>                     
+          </ul>
+        </li> 
 
         <li class="dropdown" id="navSetting">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
