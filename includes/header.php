@@ -65,7 +65,7 @@
 
       <ul class="nav navbar-nav navbar-right">        
 
-      	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-list-alt"></i>  Home</a></li> 
+      	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-list-alt"></i> หน้าหลัก</a></li> 
         
         <li class="dropdown" id="navSale">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-shopping-cart"></i> ขายสินค้า <span class="caret"></span></a>
@@ -99,8 +99,7 @@
 
         <li class="dropdown" id="navSetting">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
-          <ul class="dropdown-menu">            
-            <li id="topNavSetting"><a href="setting.php"> <i class="glyphicon glyphicon-wrench"></i> ตั้งค่า</a></li>                    
+          <ul class="dropdown-menu">                            
             <li id="topNavLogout"><a href="logout.php"> <i class="glyphicon glyphicon-log-out"></i> ออกจากระบบ</a></li>            
           </ul>
         </li>        

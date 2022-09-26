@@ -16,7 +16,7 @@ if($_GET['o'] == 'add') {
 ?>
 
 <ol class="breadcrumb">
-  <li><a href="dashboard.php">Home</a></li>
+  <li><a href="dashboard.php">หน้าหลัก</a></li>
   <li>ขายสินค้า</li>
   <li class="active">
   	<?php if($_GET['o'] == 'add') { ?>
@@ -31,11 +31,11 @@ if($_GET['o'] == 'add') {
 <h4>
 	<i class='glyphicon glyphicon-circle-arrow-right'></i>
 	<?php if($_GET['o'] == 'add') {
-		echo "Add Order";
+		echo "ทำการขาย";
 	} else if($_GET['o'] == 'manord') { 
-		echo "Manage Order";
+		echo "ประวัติการขาย";
 	} else if($_GET['o'] == 'editOrd') { 
-		echo "Edit Order";
+		echo "รายละเอียดการขาย";
 	}
 	?>	
 </h4>
@@ -50,7 +50,7 @@ if($_GET['o'] == 'add') {
 		<?php } else if($_GET['o'] == 'manord') { ?>
 			<i class="glyphicon glyphicon-time"></i> รายการการขาย
 		<?php } else if($_GET['o'] == 'editOrd') { ?>
-			<i class="glyphicon glyphicon-time"></i> แก้ไขการขาย
+			<i class="glyphicon glyphicon-time"></i> รายละเอียดการขาย
 		<?php } ?>
 
 	</div> <!--/panel-->	
@@ -340,6 +340,6 @@ if($_GET['o'] == 'add') {
 </div><!-- /.modal -->
 <!-- /remove order-->
 
-<script src="custom/js/orders.js"></script>
+<script src="custom/js/order.js"></script>
 
 <?php require_once 'includes/footer.php'; ?>

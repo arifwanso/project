@@ -28,7 +28,7 @@ if($_POST) {
 					$product_id = $connect->insert_id;
 					$valid['product_id'] = $product_id;	
 					$valid['success'] = true;
-					$valid['messages'] = "Successfully Added";	
+					$valid['messages'] = "เพิ่มสินค้าสำเร็จ";	
 				} else {
 					$valid['success'] = false;
 					$valid['messages'] = "Error while adding the members";

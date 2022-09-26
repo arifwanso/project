@@ -5,7 +5,7 @@
 	<div class="col-md-12">
 
 		<ol class="breadcrumb">
-		  <li><a href="dashboard.php">Home</a></li>		  
+		  <li><a href="dashboard.php">หน้าหลัก</a></li>		  
 		  <li class="active">ประเภทสินค้า</li>
 		</ol>
 

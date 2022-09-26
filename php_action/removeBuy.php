@@ -15,7 +15,7 @@ if($buyId) {
 
  if($connect->query($sql) === TRUE && $connect->query($buyItem) === TRUE) {
  	$valid['success'] = true;
-	$valid['messages'] = "Successfully Removed";		
+	$valid['messages'] = "ลบสำเร็จ";		
  } else {
  	$valid['success'] = false;
  	$valid['messages'] = "Error while remove the brand";

@@ -18,7 +18,7 @@ if($_GET['o'] == 'add') {
 ?>
 
 <ol class="breadcrumb">
-  <li><a href="dashboard.php">Home</a></li>
+  <li><a href="dashboard.php">หน้าหลัก</a></li>
   <li>ซื้อสินค้า</li>
   <li class="active">
   	<?php if($_GET['o'] == 'add') { ?>
@@ -36,13 +36,13 @@ if($_GET['o'] == 'add') {
 <h4>
 	<i class='glyphicon glyphicon-circle-arrow-right'></i>
 	<?php if($_GET['o'] == 'add') {
-		echo "Add Buy";
+		echo "เพิ่มสินค้า";
 	}else if($_GET['o']=='addNew'){
-		echo "Add New";
+		echo "เพิ่มสินค้าใหม่";
 	}else if($_GET['o'] == 'manord') { 
-		echo "Manage Buy";
+		echo "ประวัติการซื้อ";
 	} else if($_GET['o'] == 'editOrd') { 
-		echo "Edit Buy";
+		echo "รายละเอียดการซื้อ";
 	}
 	?>	
 </h4>
@@ -59,7 +59,7 @@ if($_GET['o'] == 'add') {
 		<?php } else if($_GET['o'] == 'manord') { ?>
 			<i class="glyphicon glyphicon-time"></i> รายการการซื้อ
 		<?php } else if($_GET['o'] == 'editOrd') { ?>
-			<i class="glyphicon glyphicon-time"></i> แก้ไขการซื้อ
+			<i class="glyphicon glyphicon-time"></i> รายละเอียดการซื้อ
 		<?php } ?>
 
 	</div> <!--/panel-->	

@@ -42,7 +42,7 @@ if($_POST) {
 
 				$connect->query($sellItemSql);		
 				$valid['success'] = true;
-				$valid['messages'] = "Successfully Added";		
+				$valid['messages'] = "ขายสินค้าสำเร็จ";		
 			}	
 			else{
 				$DeleteSql = "DELETE from sell where sell_id = $sell_id";

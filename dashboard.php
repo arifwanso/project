@@ -120,7 +120,7 @@ if($date == 7){
 ?>
 
 	<div style="height:75px;"><h1 align="center">สินค้ายอดนิยมประจำเดือน <?php echo $month ?></h1></div>
-<div class="container" style="width: 800px;">
+<div class="container" style="width: 800px;"></div>
 	<div id="product_loading">
 	<?php
 	if(mysqli_num_rows($result) > 0)

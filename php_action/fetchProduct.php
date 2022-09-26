@@ -33,13 +33,13 @@ if($result->num_rows > 0) {
  	// active 
  	if($row[7] == 1 ){
  		// activate member
- 		$status = "<label class='label label-success'>Available</label>";
+ 		$status = "<label class='label label-success'>มีสินค้า</label>";
  	} elseif($row[7] == 2) {
  		// deactivate member
- 		$status = "<label class='label label-danger'>No Available</label>";
+ 		$status = "<label class='label label-danger'>สินค้าหมด</label>";
  	} // /else
 	 elseif($row[7] == 3){
-		$status = "<label class='label label-warning'>Warning</label>";
+		$status = "<label class='label label-warning'>จุดสั่งซื้อ</label>";
 
 	 }
 

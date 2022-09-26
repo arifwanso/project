@@ -39,7 +39,7 @@ if($result->num_rows > 0) {
  		$status = "<label class='label label-danger'>No Available</label>";
  	} // /else
 	 elseif($row[7] == 3){
-		$status = "<label class='label label-warning'>Warning</label>";
+		$status = "<label class='label label-warning'>จุดสั่งซื้อ</label>";
 
 	 }
 

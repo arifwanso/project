@@ -117,7 +117,7 @@ $(document).ready(function() {
 	            	'<button type="button" class="close" data-dismiss="alert">&times;</button>'+
 	            	'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
 	            	' <br /> <br /> <a type="button" onclick="printOrder('+response.buy_id+')" class="btn btn-primary"> <i class="glyphicon glyphicon-print"></i> Print </a>'+
-	            	'<a href="buy.php?o=add" class="btn btn-default" style="margin-left:10px;"> <i class="glyphicon glyphicon-plus-sign"></i> Add New Buy </a>'+
+	            	'<a href="buy.php?o=add" class="btn btn-default" style="margin-left:10px;"> <i class="glyphicon glyphicon-plus-sign"></i> เพิ่มสินค้า </a>'+
 	            	
 	   		       '</div>');
 								

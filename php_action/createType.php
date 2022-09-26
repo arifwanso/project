@@ -14,7 +14,7 @@ if($_POST) {
 
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;
-		$valid['messages'] = "Successfully Added";	
+		$valid['messages'] = "เพิ่มประเภทสำเร็จ";	
 	} else {
 	 	$valid['success'] = false;
 	 	$valid['messages'] = "Error while adding the members";
