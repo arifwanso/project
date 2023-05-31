@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2022 at 06:50 PM
+-- Generation Time: May 31, 2023 at 05:40 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -32,8 +32,19 @@ CREATE TABLE `buy` (
   `buy_name` varchar(30) NOT NULL,
   `buy_date` date NOT NULL DEFAULT current_timestamp(),
   `buy_total` decimal(5,2) NOT NULL,
-  `description` varchar(100) NOT NULL
+  `description` varchar(100) NOT NULL,
+  `buy_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `buy`
+--
+
+INSERT INTO `buy` (`buy_id`, `buy_name`, `buy_date`, `buy_total`, `description`, `buy_time`) VALUES
+(2, '', '2023-05-18', '8.00', '', '23:46:31'),
+(3, '', '2023-05-19', '0.00', '', '15:00:32'),
+(4, '', '2023-05-19', '100.00', '', '15:02:00'),
+(5, '', '2023-05-19', '180.00', '', '15:59:40');
 
 -- --------------------------------------------------------
 
@@ -49,6 +60,21 @@ CREATE TABLE `buy_item` (
   `rate` varchar(255) NOT NULL,
   `total` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `buy_item`
+--
+
+INSERT INTO `buy_item` (`buy_item_id`, `buy_id`, `product_id`, `quantity`, `rate`, `total`) VALUES
+(1, 0, 3, '1', '7.00', '7.00'),
+(2, 0, 3, '1', '7.00', '7.00'),
+(3, 0, 3, '1', '7.00', '7.00'),
+(4, 0, 2, '1', '6.00', '6.00'),
+(5, 0, 1, '1', '7.00', '7.00'),
+(6, 2, 4, '1', '8.00', '8.00'),
+(7, 3, 7, '0', '20', '0'),
+(8, 4, 7, '5', '20.00', '100.00'),
+(9, 5, 8, '45', '4', '180');
 
 -- --------------------------------------------------------
 
@@ -73,12 +99,14 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `quantity`, `type_id`, `buy_price`, `sell_price`, `status`, `product_image`, `warning`) VALUES
-(1, 'ดินสอ', 10, 1, '7.00', '10.00', 1, '../assests/images/stock/178961629562e2a91ce079a.png', 5),
-(2, 'ปากกา', 13, 1, '6.00', '8.00', 1, '../assests/images/stock/65198333362e2af98df674.png', 6),
-(3, 'ชาเขียว', 20, 17, '7.00', '12.00', 1, '../assests/images/stock/176129943162ec9fcb1e7b6.png', 4),
-(4, 'น้ำอัดลม', 20, 17, '8.00', '15.00', 1, '../assests/images/stock/128801779362ec9ff53cf00.png', 5),
-(5, 'ขนมซอง', 20, 8, '5.00', '6.00', 1, '../assests/images/stock/164492411262f27e58590d8.jpg', 5),
-(6, 'โซดา', 20, 17, '8.00', '12.00', 1, '../assests/images/stock/140289205062f3124d127a7.jpg', 5);
+(1, 'ดินสอ', 9, 1, '7.00', '10.00', 1, '../assests/images/stock/17981874376466578071f11.jpg', 5),
+(2, 'ปากกา', 14, 1, '6.00', '8.00', 1, '../assests/images/stock/16331585766466578a5e214.jpg', 6),
+(3, 'ชาเขียว', 22, 17, '7.00', '12.00', 1, '../assests/images/stock/48862962646657963ba08.jpg', 4),
+(4, 'น้ำอัดลม', 20, 17, '8.00', '15.00', 1, '../assests/images/stock/1912279482646657a1e0774.jpg', 5),
+(5, 'ขนมซอง', 17, 8, '5.00', '6.00', 1, '../assests/images/stock/1243836533646657adad0cf.jpg', 5),
+(6, 'โซดา', 20, 17, '8.00', '12.00', 1, '../assests/images/stock/1499397867646657b7b5ddb.jpg', 5),
+(7, 'ไม้กวาด', 4, 18, '20.00', '25.00', 3, '../assests/images/stock/46607191164672cda6fcb3.jpg', 5),
+(8, 'ขนม', 45, 8, '4.00', '5.00', 1, '../assests/images/stock/173615401264673a92b0cab.png', 5);
 
 -- --------------------------------------------------------
 
@@ -89,21 +117,25 @@ INSERT INTO `product` (`product_id`, `product_name`, `quantity`, `type_id`, `buy
 CREATE TABLE `sell` (
   `sell_id` int(10) NOT NULL,
   `sell_date` date NOT NULL DEFAULT current_timestamp(),
-  `sell_total` decimal(5,2) NOT NULL
+  `sell_total` decimal(5,2) NOT NULL,
+  `sell_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sell`
 --
 
-INSERT INTO `sell` (`sell_id`, `sell_date`, `sell_total`) VALUES
-(113, '2022-08-10', '10.00'),
-(117, '2022-08-11', '90.00'),
-(119, '2022-08-11', '18.00'),
-(120, '2022-08-11', '18.00'),
-(128, '2022-08-11', '10.00'),
-(133, '2022-08-11', '10.00'),
-(134, '2022-08-11', '116.00');
+INSERT INTO `sell` (`sell_id`, `sell_date`, `sell_total`, `sell_time`) VALUES
+(113, '2022-08-10', '10.00', '00:00:00'),
+(117, '2022-08-11', '90.00', '00:00:00'),
+(119, '2022-08-11', '18.00', '00:00:00'),
+(120, '2022-08-11', '18.00', '00:00:00'),
+(128, '2022-08-11', '10.00', '00:00:00'),
+(133, '2022-08-11', '10.00', '00:00:00'),
+(134, '2022-08-11', '116.00', '00:00:00'),
+(135, '2023-05-18', '15.00', '23:48:17'),
+(136, '2023-05-19', '6.00', '14:20:19'),
+(137, '2023-05-19', '25.00', '16:00:16');
 
 -- --------------------------------------------------------
 
@@ -133,7 +165,15 @@ INSERT INTO `sell_item` (`sell_item_id`, `sell_id`, `product_id`, `quantity`, `r
 (68, 128, 1, '1', '10.00', '10.00'),
 (69, 133, 1, '1', '10.00', '10.00'),
 (70, 134, 1, '10', '10.00', '100.00'),
-(71, 134, 2, '2', '8.00', '16.00');
+(71, 134, 2, '2', '8.00', '16.00'),
+(72, 0, 1, '1', '10.00', '10.00'),
+(73, 0, 1, '1', '10.00', '10.00'),
+(74, 0, 3, '1', '12.00', '12.00'),
+(75, 0, 5, '1', '6.00', '6.00'),
+(76, 0, 5, '1', '6.00', '6.00'),
+(77, 135, 4, '1', '15.00', '15.00'),
+(78, 136, 5, '1', '6.00', '6.00'),
+(79, 137, 7, '1', '25.00', '25.00');
 
 -- --------------------------------------------------------
 
@@ -230,31 +270,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `buy`
 --
 ALTER TABLE `buy`
-  MODIFY `buy_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `buy_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `buy_item`
 --
 ALTER TABLE `buy_item`
-  MODIFY `buy_item_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `buy_item_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sell`
 --
 ALTER TABLE `sell`
-  MODIFY `sell_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `sell_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT for table `sell_item`
 --
 ALTER TABLE `sell_item`
-  MODIFY `sell_item_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `sell_item_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `type`
